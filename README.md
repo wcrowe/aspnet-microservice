@@ -1,7 +1,5 @@
-
-[![Screenshot_6](https://user-images.githubusercontent.com/1147445/85838002-907dc280-b7a1-11ea-8219-f84e3af8ba52.png)](https://www.udemy.com/course/microservices-architecture-and-implementation-on-dotnet/?couponCode=APRIL2021)
-
-**UDEMY COURSE WITH DISCOUNTED - Step by Step Development of this repository -> https://www.udemy.com/course/microservices-architecture-and-implementation-on-dotnet/?couponCode=APRIL2021**
+Changed a few ports that were causing conflicts.  Added a folder for SQL Server as a
+separate docker.  I got the SQL Server files from https://github.com/dbafromthecold/ 
 
 See the overall picture of **implementations on microservices with .net tools** on real-world **e-commerce microservices** project;
 
@@ -80,19 +78,26 @@ We have implemented below **features over the run-aspnetcore-microservices repos
 You will need the following tools:
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+
+or
+* [Visual Code](https://code.visualstudio.com/)
 * [.Net Core 5 or later](https://dotnet.microsoft.com/download/dotnet-core/5)
 * [Docker Desktop](https://www.docker.com/products/docker-desktop)
 
 ### Installing
 Follow these steps to get your development environment set up: (Before Run Start the Docker Desktop)
 1. Clone the repository
-2. Once Docker for Windows is installed, go to the **Settings > Advanced option**, from the Docker icon in the system tray, to configure the minimum amount of memory and CPU like so:
-* **Memory: 4 GB**
-* CPU: 2
-3. At the root directory which include **docker-compose.yml** files, run below command:
+
+2. At the root directory which include **docker-compose.yml** files, run below command:
 ```csharp
 docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
 ```
+or to build first command:
+```csharp
+docker-compose -f docker-compose.yml -f docker-compose.override.yml build
+```
+
+
 3. Wait for docker compose all microservices. That’s it! (some microservices need extra time to work so please wait if not worked in first shut)
 
 4. You can **launch microservices** as below urls:
@@ -105,9 +110,9 @@ docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d
 * **API Gateway -> http://host.docker.internal:8010/Catalog**
 * **Rabbit Management Dashboard -> http://host.docker.internal:15672**   -- guest/guest
 * **Portainer -> http://host.docker.internal:9000**   -- admin/admin1234
-* **pgAdmin PostgreSQL -> http://host.docker.internal:5050**   -- admin@aspnetrun.com/admin1234
+* **pgAdmin PostgreSQL -> http://host.docker.internal:49155**   -- admin@aspnetrun.com/admin1234
 * **Elasticsearch -> http://host.docker.internal:9200**
-* **Kibana -> http://host.docker.internal:5601**
+* **Kibana -> http://host.docker.internal:49160**
 
 * **Web Status -> http://host.docker.internal:8007**
 * **Web UI -> http://host.docker.internal:8006**
